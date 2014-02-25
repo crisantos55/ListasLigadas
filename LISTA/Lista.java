@@ -101,6 +101,100 @@ public class Lista {
 		System.out.printf(" primer elemento borrado %d %n ",aux.getNumero());
 		inicio=aux.getSiguiente();
 	}
+	
+	public void comprueba(){
+		Lista inicio=new Lista();
+		Lista a1= new Lista();
+		Lista a2= new Lista();
+		inicio.insertar(1);
+		inicio.insertar(2);
+		inicio.insertar(3);
+		inicio.insertar(4);
+		inicio.recorrer();
+		//this.dividir(inicio);
+		inicio.eliminarUltimo();
+		inicio.recorrer();
+		
+	}
+	
+ 
+
+	
+	public void dividir(Lista a){
+		Nodo aux=a.inicio;
+		Nodo aux2=a.inicio;
+		if(aux!=null){
+			Lista n1= new Lista();
+			Lista n2= new Lista();
+			boolean ban=true;
+			if(aux.getSiguiente()!=null){
+			while(aux!=null){
+				if(ban){
+					n1.insertar(aux.getNumero());
+					ban=false;
+					aux=aux.getSiguiente();
+				}else{
+					n2.insertar(aux.getNumero());
+					ban=true;
+					aux=aux.getSiguiente();
+				}
+				
+			}
+			
+			}else{
+				n1.insertar(aux.getNumero());
+			}
+			System.out.println("lista original");
+			a.recorreRecursivo(aux2);
+			System.out.println("Lista 1 ");
+			n1.recorrer();
+			System.out.println("Lista 2");
+			n2.recorrer();
+		}
+		
+		else{
+			System.out.println("Lista vacia");
+		}
+	}
+	
+	public void recorreRecursivo(Nodo aux){
+		
+		if(aux!=null){
+			System.out.println(aux.getNumero());
+			this.recorreRecursivo(aux.getSiguiente());
+		}
+	}
+	
+	public void eliminarUltimo(){
+		Nodo aux= inicio;
+		Nodo aux2=null;
+		while(aux.getSiguiente()!=null){
+			aux2=aux;
+			aux=aux.getSiguiente();
+		}
+		aux2.setSiguiente(null);
+		
+	}
+	
+	public void eliminarDuplicados(){
+		Nodo aux=inicio;
+		Nodo aux2=null;
+		Nodo aux3=null;
+		Nodo aux4=inicio;
+		if(aux.getSiguiente()!=null){
+			while(aux4!=null){
+				while(aux!=null){
+					
+				}
+				aux=inicio;
+				aux4=aux4.getSiguiente();
+			}
+		}else{
+			System.out.println("No hay repetidos");
+		}
+	}
+	
+	
 
 	public void ordenarBurbuja() {
  
